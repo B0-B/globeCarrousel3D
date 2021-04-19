@@ -4,16 +4,9 @@
 <p class="text-gray mb-2" align="center"> 
 <img src=demo.gif> </p>
 
-
-<h3 align="center" > Handy & embeddable 3D globe engine - orbiting HTML5 content in a carrousel container. </h3>
-
-
-
-
+<h3 align="center" > Handy embeddable 3D globe engine - orbiting HTML5 content in a carrousel container. </h3>
 
 <h3 align="center"> See a live demo on <a href="https://codepen.io/b0-b/pen/bGgxKPW">c◈depen</a>.</h3> 
-
-
 
 <h3 align="center" > ◕‿◕ </h3>
 
