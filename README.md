@@ -42,14 +42,31 @@ Fetch the script directly from here (no need for download)
 ```
 
 ### II. Initiate Globe
-The globe object will initialize itself relative to parent container hence it should contain fixed size values. In case of adjustments use the attributes tag. It allows to provide arguments as json.
+The globe object will initialize itself relative to parent container of choice. The script will trigger automatically when the document is loaded and catch all globe instances within the DOM. In case of adjustments use the attributes tag. It allows to provide arguments in json format but note that it is optional so if not needed it can be discarded. However the code below lists all possible attributes.
 ```html
 <body style="background:black">
     ...
     <div class="globe layout center">
+
         <!-- customize -->
         <attributes>
-            optional (json-format)
+        { <!--all default values listed-->
+            "borders": true,
+            "blurRadius": 10,
+            "damping": .01, 
+            "depthScale": 1.5,
+            "depthSize": 5000,
+            "fontSize": 0.8,
+            "globeSize": 0.2,
+            "hoverSmoothing": 0.2,
+            "maxVel": .2,
+            "minVelX": 0.01,
+            "minVelY": 0.001,
+            "radius": 0.8, // i.e. the diameter is 80% from total height 
+            "radiusDev": 0.1, // i.e. the objects deviation from the mean radius
+            "sensitivity": 20,
+            "zoom": true,
+        }
         </attributes>
 
         <!-- satelites -->
