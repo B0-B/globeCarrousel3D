@@ -33,25 +33,25 @@
 <h2 align="center">Usage</h2> 
 
 ### I. Embed
-Fetch the script directly from here (no need for download)
+A script tag in the documents header will load the globes. The script is sourced either locally (after cloning) or by fetching directly from repository
 ```html
 <head>
     ...
-    <script src="https://raw.github.com/B0-B/globeCarrousel3D/main/globeCaroussel.js"></script>
+    <script src="https://b0-b.github.io/globeCarrousel3D/globeCarrousel.js"></script>
 <head>
 ```
 
 ### II. Initiate Globe
-The globe object will initialize itself relative to parent container of choice. The script will trigger automatically when the document is loaded and catch all globe instances within the DOM. In case of adjustments use the attributes tag. It allows to provide arguments in json format but note that it is optional so if not needed it can be discarded. However the code below lists all possible attributes.
+The globe object will initialize itself relative to its parent container which is the element of choice. The script will trigger automatically when the document is loaded and catch all globe instances within the DOM. In case of adjustments use the attributes tag. It allows to provide attribute args in json format but **note** ignoring specific attributes or the `<attributes>`-tag at all will fallback to default values presented in the example below.
 ```html
 <body style="background:black">
     ...
-    <div class="globe layout center">
+    <div class="globe">
 
-        <!-- customize -->
+        <!-- customize (optional) -->
         <attributes>
         { <!--all default values listed-->
-            "borders": true,
+            "borders": true, <!-- globe overflow hidden -->
             "blurRadius": 10,
             "damping": .01, 
             "depthScale": 1.5,

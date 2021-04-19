@@ -276,40 +276,41 @@ function load () {
 
         for (let i = 0; i < divs.length; i++) {
 
-            // parse out attributes
             const div = divs[i];
-            var att = div.querySelector('attributes'),
+
+            // parse out attributes
+            var att = div.querySelector('attributes'), json={};
+            if (att != null) {
+                
+                // json parse (manually)
+                /* unfortunately JSON.parse(JSON.stringify(..)) returned a string idk */
+                json = {};
                 jsonPrepare = att.innerHTML;
-            
-            // json parse
-            /* unfortunately JSON.parse(JSON.stringify(..)) returned a string idk */
-            const json = {}
-            jp = jsonPrepare
-                .replaceAll(' ', '')
-                .replaceAll('\n', '')
-                .replaceAll('"', '')
-                .replaceAll('{', '')
-                .replaceAll('}', '')
-                .split(',');
-                for (let i = 0; i < jp.length; i++) {
-                    const el = jp[i].split(':');
-                    try {
-                        console.log(el)
-                        if (el[0] != "") {
-                            json[el[0]] = parseFloat(el[1])
+                jp = jsonPrepare
+                    .replaceAll(' ', '')
+                    .replaceAll('\n', '')
+                    .replaceAll('"', '')
+                    .replaceAll('{', '')
+                    .replaceAll('}', '')
+                    .split(',');
+                    for (let i = 0; i < jp.length; i++) {
+                        const el = jp[i].split(':');
+                        try {
+                            console.log(el)
+                            if (el[0] != "") {
+                                json[el[0]] = parseFloat(el[1])
+                            }
+                        } catch (e) {
+                            json[el[0]] = el[1]
                         }
-                    } catch (e) {
-                        json[el[0]] = el[1]
-                    }
-                } console.log(json)
-
-            try {
+                } console.log('json', json)
                 div.removeChild(att); // remove attributes
-
-            } catch (e) {
-                console.log(e)
+            } else {
                 json = null
             }
+                
+            
+            
             
             // load the globe
             globe(div, json);
