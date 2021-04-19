@@ -18,28 +18,22 @@ async function drift (globeObject) {
     This function simulates a smallest timestep 
     simulation called a drift. Note that T = 1/frequency(Hz)
     */
-    const   T = 1 / globeObject.freq,
-            s = globeObject.satelites;
+    const   T = 1 / globeObject.freq, s = globeObject.satelites;
     for (let i = 0; i < s.length; i++) {
         const sat = s[i];
         sat.coordinates.theta = (sat.coordinates.theta + globeObject.dt) % (2 * Math.PI);
         sat.coordinates.phi = (sat.coordinates.phi + globeObject.dp) % (2 * Math.PI);
-    }
-    await sleep (T);
+    } await sleep (T);
     await render(globeObject);
 }
 
 async function sleep (seconds) {
-    return new Promise(function(resolve) {
-        setTimeout(function() {resolve(0)}, 1000*seconds);
-    });
+    return new Promise(function(resolve){setTimeout(function(){resolve(0)},1000*seconds)});
 }
 
-function toArray (collection) {
-    return Array.prototype.filter.call(collection, function(el) { return el });
-}
+function toArray (collection) {return Array.prototype.filter.call(collection, function(el) { return el })}
 
-function u () {return Math.random()}
+function u () {return Math.random()} // uniform samplers
 
 function u_sign () {if (u() <= .5) {return 1} return -1}
 
@@ -273,10 +267,8 @@ function globe (Element, attributes=null) {
 
 // ---- loader function ----
 function load () {
-    /* 
-        Will load the globe on all tags with class "globe".
-        This function will trigger when the document is loaded. 
-    */        
+    /*  Will load the globe on all tags with class "globe".
+        This function will trigger when the document is loaded. */        
     document.addEventListener("DOMContentLoaded", function(event) { 
 
         const targets = document.getElementsByClassName("globe");
@@ -307,7 +299,6 @@ function load () {
                             json[el[0]] = parseFloat(el[1])
                         }
                     } catch (e) {
-                        console.log('ERROR', e)
                         json[el[0]] = el[1]
                     }
                 } console.log(json)
@@ -323,7 +314,6 @@ function load () {
             // load the globe
             globe(div, json);
         }
-
     });
 }
 // -------------------------
