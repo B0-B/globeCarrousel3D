@@ -251,12 +251,15 @@ function globe (Element, attributes=null) {
         }
     }); 
     e.addEventListener("wheel", event => {
+        if (zoom) {
             if (event.deltaY > 0) {
                 globeObject.r *= .80;
             } else {
                 globeObject.r *= 1.125;
             }
-    }, {passive: zoom});
+        }
+            
+    });
 
     // render once and then start update loop
     render(globeObject);
@@ -267,6 +270,7 @@ function globe (Element, attributes=null) {
 
 // ---- loader function ----
 function load () {
+
     /*  Will load the globe on all tags with class "globe".
         This function will trigger when the document is loaded. */        
     document.addEventListener("DOMContentLoaded", function(event) { 
@@ -303,14 +307,12 @@ function load () {
                         } catch (e) {
                             json[el[0]] = el[1]
                         }
-                } console.log('json', json)
+                    } console.log('json', json)
+                if (Object.keys(json).length == 0) {json = null}
                 div.removeChild(att); // remove attributes
             } else {
                 json = null
             }
-                
-            
-            
             
             // load the globe
             globe(div, json);

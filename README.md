@@ -1,13 +1,13 @@
 <h1 align="center">🌐 Carrousel 3D</h1> 
 
 
-<p class="text-gray mb-2" align="center">Handy & embeddable 3D engine script for rigid body simulations - orbiting HTML5 content in a carrousel container. </p>
+<p class="text-gray mb-2" align="center">Handy & embeddable 3D globe engine - orbiting HTML5 content in a carrousel container. </p>
 
 <h3 align="center" > ◕‿◕ </h3>
 
 <br>
 
-<h3 align="center"> This project is also on <a href="https://codepen.io/">c◈depen</a>.</h3> 
+<h3 align="center"> This project is also on <a href="https://codepen.io/b0-b/pen/bGgxKPW">c◈depen</a>.</h3> 
 
 
 
@@ -37,7 +37,7 @@ A script tag in the documents header will load the globes. The script is sourced
 ```html
 <head>
     ...
-    <script src="https://b0-b.github.io/globeCarrousel3D/globeCarrousel.js"></script>
+    <script type="text/javascript" src="https://b0-b.github.io/globeCarrousel3D/globeCarrousel.js"></script>
 <head>
 ```
 
