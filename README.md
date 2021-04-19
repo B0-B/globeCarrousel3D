@@ -85,3 +85,20 @@ The globe object will initialize itself relative to its parent container which i
     </div>
 </body>
 ```
+
+### Custom Style
+The default style is mostly blank as the focus lied on dynamical and interactive modelling simultaneously the carrousel was designed such that styling can be appended intuitively and easy.
+
+- you may add global style attributes like ```font-family``` directly to the `globe` object
+- create eventListeners which are intended to trace a sattelite and respond to it's depth. The depth is encoded in the `z-index` of the option-element and lies between 0 and the provided `depthScale` (default=10000). This allows to create depth dependent transitions etc.
+- customize your satelite content by adding html instead of text 
+    ```html
+    <div class="globe custom-class ...">
+        ...
+        <option>
+            <div class="another-custom-class">
+                <img src="..">
+            </div>
+        </option>
+    ```
+    but note that the html content will always transform to a square shape to fit minimal client `viewport`.
